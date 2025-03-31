@@ -8,8 +8,11 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
+# concurrently'yi proje bağımlılığı olarak ekle
+RUN yarn add concurrently
+
 # Proje dosyalarını kopyala
 COPY . .
 
-# Nginx başlat
-CMD ["npm", "start", "run;"]
+# Uygulamayı başlat
+CMD ["yarn", "start"]
