@@ -11,15 +11,5 @@ RUN yarn install --frozen-lockfile
 # Proje dosyalarını kopyala
 COPY . .
 
-# Yapıyı oluştur
-RUN yarn dist
-
-# Nginx kullanarak dağıtımı yap
-FROM nginx:latest
-COPY --from=0 /app/webapp /usr/share/nginx/html
-
-# Nginx için varsayılan port
-EXPOSE 2331
-
 # Nginx başlat
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start", "run;"]
