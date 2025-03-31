@@ -19,7 +19,7 @@ FROM nginx:latest
 COPY --from=0 /app/webapp /usr/share/nginx/html
 
 # Nginx için varsayılan port
-EXPOSE 80
+EXPOSE 2331
 
 # Nginx başlat
 CMD ["nginx", "-g", "daemon off;"]
